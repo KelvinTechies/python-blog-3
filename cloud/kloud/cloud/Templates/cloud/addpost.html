@@ -1,0 +1,76 @@
+{% extends 'header.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Add Personal Post</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="{% url 'dashboard' %}">Home</a></li>
+              <li class="breadcrumb-item active"> Personal Post</li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <!-- left column -->
+          <div class=" col-md-6 col-md-12">
+            <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">Post</h3>
+              </div>
+              <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="card-body">
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Name of Posts</label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" name="name" placeholder="Enter Name of Post">
+                  </div>
+                  <div class="form-group">
+                        <label>Choose Category(Images, Videos, Documents    )</label>
+                        <select name="category" class="form-control select2bs4" style="width: 100%;">
+                          <option selected="selected">---Select Category---</option>
+                          <option>Images</option>
+                          <option>Videos</option>
+                          <option>Documents</option>
+                        </select>
+                      </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputFile">Upload Files</label>
+                    <div class="input-group">
+                      <div class="custom-file">
+                        <input type="file" name="image" class="custom-file-input" id="exampleInputFile">
+                        <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                      </div>
+                      <div class="input-group-append">
+                        <span class="input-group-text">Upload</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="card-footer">
+                  <button type="submit" class="btn btn-primary px-5">Add</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+{% endblock %}

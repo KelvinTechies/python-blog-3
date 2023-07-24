@@ -1,0 +1,16 @@
+{% extends 'header.html' %}
+{% load static %}
+
+{%  block content %}
+{% for document in documents %}
+
+{% if document.PostImage %}
+
+<a href={{ document.PostImage.url }} download="" >
+
+    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Alias, architecto.
+</a>
+{% endif %}
+
+{% endfor %}
+{% endblock %}
